@@ -70,11 +70,6 @@ function PhotoList() {
 
     photoAPI
       .getAll(1)
-      // fetch(okUrl)
-      //   // .then((response) => {
-      //   //   if (!response.ok) throw new Error(response.statusText);
-      //   //   return response;
-      //   // })
       .then((response) => response.json())
       .then((data) => {
         setError(null);
