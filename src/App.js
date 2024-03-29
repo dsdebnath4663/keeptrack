@@ -1,10 +1,11 @@
 import "./App.css";
-import PhotoList from "./backend api fetch/PhotoList.js";
+import ProjectsPage from "./projects/ProjectsPage";
 
 function App() {
   return (
     <div className="ExampleForm">
-      <PhotoList />
+      <h1>Projects</h1>
+      <ProjectsPage />
     </div>
   );
 }
