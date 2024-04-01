@@ -12,7 +12,10 @@ function ProjectList({ projects, onSave }) {
   const cancelEditing = () => {
     setProjectBeingEdited({});
   };
-
+  console.log(
+    "projects Inside ProjectList component",
+    JSON.stringify(projects, null, " ")
+  );
   const items = projects.map((project) => (
     <div key={project.id} className="cols-sm">
       {project === projectBeingEdited ? (

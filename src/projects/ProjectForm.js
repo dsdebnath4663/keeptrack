@@ -11,9 +11,11 @@ function ProjectForm({ onSave, onCancel, project: initialProject }) {
   });
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!isValid()) return; //3
     onSave(project);
   };
   const handleChange = (event) => {
+    console.log("----------------");
     const { type, name, value, checked } = event.target;
 
     let updatedValue = type === "checkbox" ? checked : value;
@@ -32,9 +34,10 @@ function ProjectForm({ onSave, onCancel, project: initialProject }) {
       return updatedProject;
     });
 
-    setErrors(() => validate(updatedProject));
+    setErrors(() => validate(updatedProject)); //1
   };
   function validate(project) {
+    //2
     let errors = { name: "", description: "", budget: "" };
     if (project.name.length === 0) {
       errors.name = "Name is required";
@@ -52,6 +55,7 @@ function ProjectForm({ onSave, onCancel, project: initialProject }) {
   }
 
   function isValid() {
+    //4
     return (
       errors.name.length === 0 &&
       errors.description.length === 0 &&
@@ -68,18 +72,43 @@ function ProjectForm({ onSave, onCancel, project: initialProject }) {
         value={project.name}
         onChange={handleChange}
       />
+      {errors.name.length > 0 && (
+        <div className="card error">
+          <p>{errors.name}</p>
+        </div>
+      )}
       <label htmlFor="description">Project Description</label>
-      <textarea name="description" placeholder="enter description" />
-      value={project.description}
-      onChange={handleChange}
+      <textarea
+        name="description"
+        placeholder="enter description"
+        value={project.description}
+        onChange={handleChange}
+      />
+      {errors.description.length > 0 && (
+        <div className="card error">
+          <p>{errors.description}</p>
+        </div>
+      )}
       <label htmlFor="budget">Project Budget</label>
-      <input type="number" name="budget" placeholder="enter budget" />
-      value={project.budget}
-      onChange={handleChange}
+      <input
+        type="number"
+        name="budget"
+        placeholder="enter budget"
+        value={project.budget}
+        onChange={handleChange}
+      />
+      {errors.budget.length > 0 && (
+        <div className="card error">
+          <p>{errors.budget}</p>
+        </div>
+      )}
       <label htmlFor="isActive">Active?</label>
-      <input type="checkbox" name="isActive" />
-      checked={project.isActive}
-      onChange={handleChange}
+      <input
+        type="checkbox"
+        name="isActive"
+        checked={project.isActive}
+        onChange={handleChange}
+      />
       <div className="input-group">
         <button className="primary bordered medium">Save</button>
         <span />
