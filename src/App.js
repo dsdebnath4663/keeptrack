@@ -15,6 +15,7 @@ import ProjectPage from "./projects/ProjectPage";
 import UserAuthenticationContext from "./react advance/hooks/inbuilt/useContext-2/UserAuthenticationContext";
 import FormHandler from "./react advance/hooks/custom/useFormInput/FormHandler";
 import DataFetch from "./react advance/hooks/custom/useFormInput/DataFetch";
+import EcommApp from "./redux/EcommApp";
 // import Theme from "./react advance/hooks/inbuilt/useContext/Theme";
 
 function App() {
@@ -35,8 +36,8 @@ function App() {
         <NavLink to="/theme" className="button rounded">
           useContext-2
         </NavLink>
-        <NavLink to="/DataFetch" className="button rounded">
-          DataFetch
+        <NavLink to="/EcommApp" className="button rounded">
+          EcommApp
         </NavLink>
       </header>
       <div className="container">
@@ -53,6 +54,7 @@ function App() {
               {/* <Route path="/theme" element={<Theme />} /> */}
               <Route path="/theme" element={<UserAuthenticationContext />} />
               <Route path="/DataFetch" element={<DataFetch />} />
+              <Route path="/EcommApp" element={<EcommApp />} />
             </Routes>
           </CSSTransition>
         </TransitionGroup>
