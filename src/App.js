@@ -12,6 +12,10 @@ import "./App.css";
 import ProjectsPage from "./projects/ProjectsPage";
 import HomePage from "./projects/home/HomePage";
 import ProjectPage from "./projects/ProjectPage";
+import UserAuthenticationContext from "./react advance/hooks/inbuilt/useContext-2/UserAuthenticationContext";
+import FormHandler from "./react advance/hooks/custom/useFormInput/FormHandler";
+import DataFetch from "./react advance/hooks/custom/useFormInput/DataFetch";
+// import Theme from "./react advance/hooks/inbuilt/useContext/Theme";
 
 function App() {
   let location = useLocation();
@@ -28,6 +32,12 @@ function App() {
         <NavLink to="/projects" className="button rounded">
           Projects
         </NavLink>
+        <NavLink to="/theme" className="button rounded">
+          useContext-2
+        </NavLink>
+        <NavLink to="/DataFetch" className="button rounded">
+          DataFetch
+        </NavLink>
       </header>
       <div className="container">
         <TransitionGroup>
@@ -40,6 +50,9 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/projects/:id" element={<ProjectPage />} />
+              {/* <Route path="/theme" element={<Theme />} /> */}
+              <Route path="/theme" element={<UserAuthenticationContext />} />
+              <Route path="/DataFetch" element={<DataFetch />} />
             </Routes>
           </CSSTransition>
         </TransitionGroup>
